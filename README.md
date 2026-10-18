@@ -19,7 +19,9 @@
 | Claude Code | 데이터 파이프라인, 백테스트, 사이트·모션그래픽 구현, 발표 대본 초안 |
 
 ## 파일
-- `index.html` — 사이트 (30초 모션그래픽 포함)
+- `index.html` — 사이트 (상단에 30초 피치 영상)
+- `assets/pitch.mp4` — 30초 피치 영상: 424개 행정동의 실제 점수로 만든 3D 데이터 시티 → 황학동 검증 → 천호3동
+- `video/` — 영상 원본 (HyperFrames + Three.js 컴포지션, `npx hyperframes render` 로 재렌더). `scripts/video.template.html` + `scripts/video-dongs.json` 으로 `video/index.html` 생성
 - `SCRIPT.md` — 3분 발표 대본
 - `scripts/fetch.py` — 상권분석서비스(행정동) 데이터 수집 (`.env`의 `SEOUL_OPEN_API_KEY` 사용, 키는 커밋하지 않음)
 - `scripts/panel.py`, `evaluate.py`, `composite.py` — 지표 패널, 지표별 백테스트, 종합점수 검증
@@ -40,3 +42,5 @@
 7. `have we run enough backtest to retrieve a positive hit on this backtesting criteria? 과거에 뜬 상권 1곳에 내 지표를 적용했을 때 미리 잡아낼 수 있었는가`
 8. `we need new testing metrics. 남영동 being the only provable point is unacceptable`
 9. `we approve 천호3동. make sure you create a formidable html output that would stand against all scoring rubrics / Make sure we bake in the motiongraphics (30s max) / and a 3-minute script in Korean / Cap this entire operation under 15 minutes`
+10. `could we have a motiongraphic content that's more than just a slideshow of our finished artifacts? I was thinking more like a pitch video with idk computer graphics and whatnot. is that not quite supported?`
+11. `let's go with your recommendation`

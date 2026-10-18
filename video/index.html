@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>천호3동 피치 — Hotspot 11</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Pretendard";src:url(fonts/Pretendard-Medium.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Pretendard";src:url(fonts/Pretendard-Bold.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"Pretendard";src:url(fonts/Pretendard-ExtraBold.woff2) format("woff2");font-weight:800}
+:root{--ink:#fbf1e3;--mute:#c9b49a;--gold:#f2c27d;--crust:#e08a3c;--deep:#0f0b08}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--deep)}
+#root{position:relative;width:100%;height:100%;overflow:hidden;font-family:"Pretendard",sans-serif;color:var(--ink);word-break:keep-all}
+#city{position:absolute;inset:0;width:100%;height:100%;display:block}
+#shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,11,8,.82) 0%,rgba(15,11,8,.35) 42%,rgba(15,11,8,0) 70%),linear-gradient(0deg,rgba(15,11,8,.7) 0%,rgba(15,11,8,0) 30%)}
+#brandbg{position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,#3b2716 0%,#0f0b08 75%);opacity:0}
+.clip{position:absolute;inset:0}
+.panel{position:absolute;left:140px;top:0;bottom:0;width:980px;display:flex;flex-direction:column;justify-content:center;gap:26px}
+.kicker{font-size:30px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
+.h{font-size:92px;font-weight:800;letter-spacing:-.035em;line-height:1.08}
+.h .g{color:var(--gold)}
+.sub{font-size:38px;font-weight:500;color:var(--mute);line-height:1.35}
+.counter{font-size:200px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--gold)}
+.chips{display:flex;flex-direction:column;gap:18px}
+.chip{display:flex;align-items:center;gap:22px;font-size:44px;font-weight:700;padding:18px 30px;border-radius:22px;background:rgba(251,241,227,.08);border:1px solid rgba(251,241,227,.18);width:fit-content}
+.chip b{font-size:30px;color:var(--deep);background:var(--gold);border-radius:12px;padding:4px 14px}
+.big{font-size:240px;font-weight:800;letter-spacing:-.05em;line-height:.95;color:var(--gold)}
+.pills{display:flex;gap:18px;flex-wrap:wrap}
+.pill{font-size:36px;font-weight:700;padding:16px 28px;border-radius:99px;background:rgba(242,194,125,.16);border:1px solid rgba(242,194,125,.45)}
+.pill span{color:var(--gold)}
+.brand{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;text-align:center}
+.brand .name{font-size:150px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.brand .tag{font-size:46px;font-weight:500;color:var(--mute)}
+.brand .rule{width:520px;height:4px;border-radius:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.brand .foot{font-size:28px;font-weight:700;letter-spacing:.16em;color:var(--gold)}
+#src{position:absolute;left:140px;bottom:60px;font-size:24px;font-weight:500;color:rgba(251,241,227,.55)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="30">
+  <canvas id="city" width="1920" height="1080"></canvas>
+  <div id="shade"></div>
+  <div id="brandbg"></div>
+
+  <section id="s1" class="clip" data-start="0" data-duration="4.2" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s1k">BAKERY HOTSPOT · SEOUL</p><p class="h" id="s1a">서울에서 빵집을 연다면,</p><p class="h" id="s1b"><span class="g">3년 뒤</span> 어디가 먼저 뜰까?</p></div>
+  </section>
+  <section id="s2" class="clip" data-start="4.2" data-duration="5" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s2k">STEP 1 · 필터</p><p class="h" id="s2h">이미 뜬 곳, 작은 상권은 뺍니다</p><p class="counter" id="cnt">424</p><p class="sub" id="s2s">서울 424개 행정동 → 후보</p></div>
+  </section>
+  <section id="s3" class="clip" data-start="9.2" data-duration="6" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s3k">STEP 2 · 검증을 통과한 선행지표</p>
+      <div class="chips"><p class="chip" id="c1"><b>01</b>점포당 매출 증가</p><p class="chip" id="c2"><b>02</b>카페·베이커리 매출 모멘텀</p><p class="chip" id="c3"><b>03</b>2030 소비 비중</p><p class="chip" id="c4"><b>04</b>객단가 하락 — 가볍게, 자주</p></div>
+      <p class="sub" id="s3s">기둥 높이 = 지금의 '뜰 확률' 점수</p></div>
+  </section>
+  <section id="s4" class="clip" data-start="15.2" data-duration="6" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s4k">STEP 3 · 과거로 검증</p><p class="h" id="s4h">2023년 말 1위, <span class="g">황학동</span></p><p class="big" id="pct">+0%</p><p class="sub" id="s4s">2년 뒤 카페·베이커리 매출 · 무작위 대비 적중률 2배</p></div>
+  </section>
+  <section id="s5" class="clip" data-start="21.2" data-duration="5" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s5k">ANSWER · 2026</p><p class="h" id="s5h" style="font-size:132px">강동구 <span class="g">천호3동</span></p>
+      <div class="pills"><p class="pill" id="p1">점포당 매출 <span>+30%</span></p><p class="pill" id="p2">2030 소비 <span>48%</span></p><p class="pill" id="p3">빵집 <span>14곳</span> · 카페 47곳</p></div></div>
+  </section>
+  <section id="s6" class="clip" data-start="26.2" data-duration="3.8" data-track-index="1">
+    <div class="brand"><p class="foot" id="b0">천호역 5·8호선 · 아침 8시 오픈</p><p class="name" id="b1">천호 소금빵 &amp; 베이글</p><div class="rule" id="b2"></div><p class="tag" id="b3">3년 안에 뜰 동네에, 먼저.</p></div>
+  </section>
+  <p id="src">데이터 · 서울시 상권분석서비스 424개 행정동 · 2021Q1–2026Q2</p>
+</div>
+
+<script>
+// ---------- overlay typography (GSAP, paused, seek-safe) ----------
+const tl = gsap.timeline({ paused: true });
+const up = (sel, at, d = 0.7) => tl.fromTo(sel, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: d, ease: "power3.out" }, at);
+const out = (sel, at) => tl.to(sel, { autoAlpha: 0, y: -24, duration: 0.4, ease: "power2.in" }, at);
+up("#s1k", 0.3); up("#s1a", 0.6, 0.9); up("#s1b", 1.5, 0.9); out(["#s1k", "#s1a", "#s1b"], 3.7);
+up("#s2k", 4.4); up("#s2h", 4.6); up("#cnt", 4.9); up("#s2s", 5.2);
+const c = { v: 424 };
+tl.to(c, { v: 232, duration: 2.6, ease: "power2.inOut", onUpdate: () => { document.getElementById("cnt").textContent = Math.round(c.v); } }, 5.4);
+out(["#s2k", "#s2h", "#cnt", "#s2s"], 8.7);
+up("#s3k", 9.4); up("#c1", 9.9); up("#c2", 10.9); up("#c3", 11.9); up("#c4", 12.9); up("#s3s", 13.6); out(["#s3k", "#c1", "#c2", "#c3", "#c4", "#s3s"], 14.7);
+up("#s4k", 15.4); up("#s4h", 15.7); up("#pct", 16.3); up("#s4s", 17.2);
+const p = { v: 0 };
+tl.to(p, { v: 115, duration: 2.4, ease: "power2.out", onUpdate: () => { document.getElementById("pct").textContent = "+" + Math.round(p.v) + "%"; } }, 16.5);
+out(["#s4k", "#s4h", "#pct", "#s4s"], 20.7);
+up("#s5k", 21.4); up("#s5h", 21.7, 0.9); up("#p1", 22.6); up("#p2", 22.9); up("#p3", 23.2); out(["#s5k", "#s5h", "#p1", "#p2", "#p3"], 25.7);
+tl.fromTo("#brandbg", { opacity: 0 }, { opacity: 0.92, duration: 1.2, ease: "power2.inOut" }, 25.8);
+tl.fromTo("#src", { opacity: 1 }, { opacity: 0, duration: 0.6 }, 25.8);
+up("#b0", 26.5); tl.fromTo("#b1", { autoAlpha: 0, scale: 0.92 }, { autoAlpha: 1, scale: 1, duration: 1.1, ease: "expo.out" }, 26.8);
+tl.fromTo("#b2", { scaleX: 0 }, { scaleX: 1, duration: 1, ease: "power3.out" }, 27.4); up("#b3", 27.7);
+window.__timelines["main"] = tl;
+</script>
+
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.181.2/+esm";
+
+const DATA = [["강남구","개포1동",-1,0],["강남구","개포2동",0.512,0],["강남구","개포4동",0.363,0],["강남구","논현1동",-1,0],["강남구","논현2동",-1,0],["강남구","대치1동",0.394,0],["강남구","대치2동",-1,0],["강남구","대치4동",-1,0],["강남구","도곡1동",0.627,0],["강남구","도곡2동",0.594,0],["강남구","삼성1동",-1,0],["강남구","삼성2동",-1,0],["강남구","세곡동",0.465,0],["강남구","수서동",0.628,0],["강남구","신사동",-1,1],["강남구","압구정동",-1,1],["강남구","역삼1동",-1,0],["강남구","역삼2동",-1,0],["강남구","일원1동",0.582,0],["강남구","일원2동",-1,0],["강남구","일원본동",0.41,0],["강남구","청담동",-1,1],["강동구","강일동",0.609,0],["강동구","고덕1동",-1,0],["강동구","고덕2동",0.538,0],["강동구","길동",-1,0],["강동구","둔촌1동",-1,0],["강동구","둔촌2동",0.564,0],["강동구","명일1동",0.325,0],["강동구","명일2동",0.361,0],["강동구","상일동",0.388,0],["강동구","성내1동",0.698,0],["강동구","성내2동",0.914,0],["강동구","성내3동",0.419,0],["강동구","암사1동",0.394,0],["강동구","암사2동",-1,0],["강동구","암사3동",0.2,0],["강동구","천호1동",0.441,0],["강동구","천호2동",-1,0],["강동구","천호3동",1.0,0],["강북구","미아동",0.62,0],["강북구","번1동",0.447,0],["강북구","번2동",-1,0],["강북구","번3동",-1,0],["강북구","삼각산동",-1,0],["강북구","삼양동",-1,0],["강북구","송중동",0.608,0],["강북구","송천동",0.529,0],["강북구","수유1동",-1,0],["강북구","수유2동",-1,0],["강북구","수유3동",-1,0],["강북구","우이동",0.317,0],["강북구","인수동",0.535,0],["강서구","가양1동",-1,0],["강서구","가양2동",-1,0],["강서구","가양3동",-1,0],["강서구","공항동",0.851,0],["강서구","등촌1동",0.946,0],["강서구","등촌2동",0.259,0],["강서구","등촌3동",0.205,0],["강서구","발산1동",0.35,0],["강서구","방화1동",0.358,0],["강서구","방화2동",-1,0],["강서구","방화3동",0.315,0],["강서구","염창동",0.626,0],["강서구","우장산동",0.588,0],["강서구","화곡1동",-1,0],["강서구","화곡2동",-1,0],["강서구","화곡3동",0.325,0],["강서구","화곡4동",0.691,0],["강서구","화곡6동",0.538,0],["강서구","화곡8동",-1,0],["강서구","화곡본동",0.322,0],["관악구","낙성대동",-1,0],["관악구","난곡동",0.639,0],["관악구","난향동",-1,0],["관악구","남현동",0.787,0],["관악구","대학동",-1,0],["관악구","미성동",0.251,0],["관악구","보라매동",0.878,0],["관악구","삼성동",-1,0],["관악구","서림동",-1,0],["관악구","서원동",0.347,0],["관악구","성현동",-1,0],["관악구","신림동",-1,0],["관악구","신사동",-1,0],["관악구","신원동",-1,0],["관악구","은천동",0.444,0],["관악구","인헌동",0.698,0],["관악구","조원동",-1,0],["관악구","중앙동",0.315,0],["관악구","청룡동",-1,0],["관악구","청림동",-1,0],["관악구","행운동",-1,0],["광진구","광장동",0.504,0],["광진구","구의1동",0.603,0],["광진구","구의2동",0.561,0],["광진구","구의3동",0.484,0],["광진구","군자동",-1,0],["광진구","능동",0.467,0],["광진구","자양1동",0.759,0],["광진구","자양2동",0.413,0],["광진구","자양3동",0.507,0],["광진구","자양4동",-1,0],["광진구","중곡1동",-1,0],["광진구","중곡2동",0.73,0],["광진구","중곡3동",0.718,0],["광진구","중곡4동",0.696,0],["광진구","화양동",-1,0],["구로구","가리봉동",-1,0],["구로구","개봉1동",0.584,0],["구로구","개봉2동",0.694,0],["구로구","개봉3동",-1,0],["구로구","고척1동",0.556,0],["구로구","고척2동",0.452,0],["구로구","구로1동",-1,0],["구로구","구로2동",0.504,0],["구로구","구로3동",-1,0],["구로구","구로4동",0.29,0],["구로구","구로5동",0.362,0],["구로구","수궁동",-1,0],["구로구","신도림동",0.478,0],["구로구","오류1동",0.609,0],["구로구","오류2동",0.567,0],["구로구","항동",-1,0],["금천구","가산동",-1,0],["금천구","독산1동",0.775,0],["금천구","독산2동",0.278,0],["금천구","독산3동",0.785,0],["금천구","독산4동",-1,0],["금천구","시흥1동",0.458,0],["금천구","시흥2동",-1,0],["금천구","시흥3동",-1,0],["금천구","시흥4동",-1,0],["금천구","시흥5동",-1,0],["노원구","공릉1동",-1,0],["노원구","공릉2동",0.722,0],["노원구","상계10동",-1,0],["노원구","상계1동",0.457,0],["노원구","상계2동",0.412,0],["노원구","상계3·4동",0.517,0],["노원구","상계5동",0.379,0],["노원구","상계6·7동",0.54,0],["노원구","상계8동",-1,0],["노원구","상계9동",-1,0],["노원구","월계1동",0.733,0],["노원구","월계2동",-1,0],["노원구","월계3동",-1,0],["노원구","중계1동",0.175,0],["노원구","중계2·3동",0.419,0],["노원구","중계4동",0.55,0],["노원구","중계본동",0.381,0],["노원구","하계1동",0.561,0],["노원구","하계2동",-1,0],["도봉구","도봉1동",0.324,0],["도봉구","도봉2동",-1,0],["도봉구","방학1동",0.27,0],["도봉구","방학2동",0.611,0],["도봉구","방학3동",-1,0],["도봉구","쌍문1동",0.186,0],["도봉구","쌍문2동",0.449,0],["도봉구","쌍문3동",0.222,0],["도봉구","쌍문4동",-1,0],["도봉구","창1동",0.645,0],["도봉구","창2동",-1,0],["도봉구","창3동",-1,0],["도봉구","창4동",0.169,0],["도봉구","창5동",0.611,0],["동대문구","답십리1동",0.553,0],["동대문구","답십리2동",0.61,0],["동대문구","용신동",-1,0],["동대문구","이문1동",-1,0],["동대문구","이문2동",-1,0],["동대문구","장안1동",0.513,0],["동대문구","장안2동",0.52,0],["동대문구","전농1동",-1,0],["동대문구","전농2동",0.579,0],["동대문구","제기동",-1,0],["동대문구","청량리동",0.572,0],["동대문구","회기동",0.489,0],["동대문구","휘경1동",0.56,0],["동대문구","휘경2동",-1,0],["동작구","노량진1동",0.737,0],["동작구","노량진2동",0.811,0],["동작구","대방동",0.841,0],["동작구","사당1동",0.456,0],["동작구","사당2동",0.499,0],["동작구","사당3동",0.52,0],["동작구","사당4동",-1,0],["동작구","사당5동",-1,0],["동작구","상도1동",-1,0],["동작구","상도2동",0.82,0],["동작구","상도3동",0.211,0],["동작구","상도4동",0.466,0],["동작구","신대방1동",0.48,0],["동작구","신대방2동",0.779,0],["동작구","흑석동",0.714,0],["마포구","공덕동",-1,0],["마포구","대흥동",-1,0],["마포구","도화동",0.674,0],["마포구","망원1동",-1,1],["마포구","망원2동",0.241,0],["마포구","상암동",-1,0],["마포구","서강동",0.48,0],["마포구","서교동",-1,1],["마포구","성산1동",0.809,0],["마포구","성산2동",0.785,0],["마포구","신수동",0.39,0],["마포구","아현동",0.52,0],["마포구","연남동",-1,1],["마포구","염리동",0.388,0],["마포구","용강동",0.692,0],["마포구","합정동",-1,1],["서대문구","남가좌1동",-1,0],["서대문구","남가좌2동",0.385,0],["서대문구","북가좌1동",-1,0],["서대문구","북가좌2동",0.495,0],["서대문구","북아현동",-1,0],["서대문구","신촌동",-1,0],["서대문구","연희동",-1,0],["서대문구","천연동",-1,0],["서대문구","충현동",-1,0],["서대문구","홍은1동",-1,0],["서대문구","홍은2동",0.631,0],["서대문구","홍제1동",-1,0],["서대문구","홍제2동",-1,0],["서대문구","홍제3동",-1,0],["서초구","내곡동",0.908,0],["서초구","반포1동",0.665,0],["서초구","반포2동",-1,0],["서초구","반포3동",0.232,0],["서초구","반포4동",-1,0],["서초구","반포본동",-1,0],["서초구","방배1동",0.473,0],["서초구","방배2동",0.452,0],["서초구","방배3동",0.559,0],["서초구","방배4동",0.526,0],["서초구","방배본동",0.403,0],["서초구","서초1동",0.675,0],["서초구","서초2동",-1,0],["서초구","서초3동",-1,0],["서초구","서초4동",-1,0],["서초구","양재1동",-1,0],["서초구","양재2동",-1,0],["서초구","잠원동",0.767,0],["성동구","금호1가동",-1,0],["성동구","금호2·3가동",-1,0],["성동구","금호4가동",-1,0],["성동구","마장동",0.762,0],["성동구","사근동",0.582,0],["성동구","성수1가1동",-1,1],["성동구","성수1가2동",-1,1],["성동구","성수2가1동",-1,1],["성동구","성수2가3동",-1,1],["성동구","송정동",-1,0],["성동구","옥수동",-1,0],["성동구","왕십리2동",-1,0],["성동구","왕십리도선동",0.48,0],["성동구","용답동",0.78,0],["성동구","응봉동",-1,0],["성동구","행당1동",0.361,0],["성동구","행당2동",-1,0],["성북구","길음1동",0.11,0],["성북구","길음2동",0.628,0],["성북구","돈암1동",-1,0],["성북구","돈암2동",0.456,0],["성북구","동선동",-1,0],["성북구","보문동",0.482,0],["성북구","삼선동",-1,0],["성북구","석관동",0.473,0],["성북구","성북동",0.314,0],["성북구","안암동",-1,0],["성북구","월곡1동",0.181,0],["성북구","월곡2동",0.588,0],["성북구","장위1동",-1,0],["성북구","장위2동",-1,0],["성북구","장위3동",-1,0],["성북구","정릉1동",-1,0],["성북구","정릉2동",-1,0],["성북구","정릉3동",0.889,0],["성북구","정릉4동",0.587,0],["성북구","종암동",-1,0],["송파구","가락1동",0.516,0],["송파구","가락2동",0.549,0],["송파구","가락본동",0.647,0],["송파구","거여1동",0.539,0],["송파구","거여2동",0.0,0],["송파구","마천1동",-1,0],["송파구","마천2동",0.505,0],["송파구","문정1동",-1,0],["송파구","문정2동",0.593,0],["송파구","방이1동",0.572,0],["송파구","방이2동",0.691,0],["송파구","삼전동",0.373,0],["송파구","석촌동",0.531,0],["송파구","송파1동",0.604,0],["송파구","송파2동",0.479,0],["송파구","오금동",0.855,0],["송파구","오륜동",0.533,0],["송파구","위례동",0.137,0],["송파구","잠실2동",0.502,0],["송파구","잠실3동",0.795,0],["송파구","잠실4동",-1,0],["송파구","잠실6동",-1,0],["송파구","잠실7동",-1,0],["송파구","잠실본동",-1,0],["송파구","장지동",0.564,0],["송파구","풍납1동",-1,0],["송파구","풍납2동",0.244,0],["양천구","목1동",0.41,0],["양천구","목2동",0.43,0],["양천구","목3동",0.548,0],["양천구","목4동",-1,0],["양천구","목5동",0.429,0],["양천구","신월1동",0.504,0],["양천구","신월2동",-1,0],["양천구","신월3동",-1,0],["양천구","신월4동",-1,0],["양천구","신월5동",-1,0],["양천구","신월6동",-1,0],["양천구","신월7동",-1,0],["양천구","신정1동",-1,0],["양천구","신정2동",0.433,0],["양천구","신정3동",0.553,0],["양천구","신정4동",0.521,0],["양천구","신정6동",-1,0],["양천구","신정7동",0.458,0],["영등포구","당산1동",0.713,0],["영등포구","당산2동",-1,0],["영등포구","대림1동",0.247,0],["영등포구","대림2동",-1,0],["영등포구","대림3동",0.452,0],["영등포구","도림동",-1,0],["영등포구","문래동",-1,1],["영등포구","신길1동",0.752,0],["영등포구","신길3동",-1,0],["영등포구","신길4동",-1,0],["영등포구","신길5동",-1,0],["영등포구","신길6동",0.334,0],["영등포구","신길7동",-1,0],["영등포구","양평1동",0.418,0],["영등포구","양평2동",0.906,0],["영등포구","여의동",-1,0],["영등포구","영등포동",-1,0],["영등포구","영등포본동",0.82,0],["용산구","남영동",0.911,0],["용산구","보광동",-1,0],["용산구","서빙고동",-1,0],["용산구","용문동",-1,0],["용산구","용산2가동",-1,1],["용산구","원효로1동",0.592,0],["용산구","원효로2동",-1,0],["용산구","이촌1동",0.059,0],["용산구","이촌2동",-1,0],["용산구","이태원1동",-1,1],["용산구","이태원2동",0.91,0],["용산구","청파동",0.616,0],["용산구","한강로동",-1,1],["용산구","한남동",-1,1],["용산구","효창동",0.603,0],["용산구","후암동",0.705,0],["은평구","갈현1동",0.246,0],["은평구","갈현2동",0.675,0],["은평구","구산동",0.403,0],["은평구","녹번동",0.663,0],["은평구","대조동",-1,0],["은평구","불광1동",0.433,0],["은평구","불광2동",-1,0],["은평구","수색동",-1,0],["은평구","신사1동",0.3,0],["은평구","신사2동",-1,0],["은평구","역촌동",0.405,0],["은평구","응암1동",0.403,0],["은평구","응암2동",-1,0],["은평구","응암3동",0.588,0],["은평구","증산동",0.556,0],["은평구","진관동",0.694,0],["종로구","가회동",-1,0],["종로구","교남동",-1,0],["종로구","무악동",-1,0],["종로구","부암동",0.389,0],["종로구","사직동",-1,0],["종로구","삼청동",-1,1],["종로구","숭인1동",-1,0],["종로구","숭인2동",0.565,0],["종로구","이화동",-1,0],["종로구","종로1·2·3·4가동",-1,1],["종로구","종로5·6가동",0.529,0],["종로구","창신1동",0.551,0],["종로구","창신2동",-1,0],["종로구","창신3동",-1,0],["종로구","청운효자동",0.392,0],["종로구","평창동",0.153,0],["종로구","혜화동",-1,0],["중구","광희동",0.754,0],["중구","다산동",0.439,0],["중구","동화동",-1,0],["중구","명동",-1,0],["중구","소공동",-1,0],["중구","신당5동",0.191,0],["중구","신당동",-1,1],["중구","약수동",0.392,0],["중구","을지로동",-1,1],["중구","장충동",0.664,0],["중구","중림동",0.863,0],["중구","청구동",-1,0],["중구","필동",0.669,0],["중구","황학동",0.665,0],["중구","회현동",-1,0],["중랑구","망우3동",0.479,0],["중랑구","망우본동",0.505,0],["중랑구","면목2동",0.573,0],["중랑구","면목3·8동",0.51,0],["중랑구","면목4동",-1,0],["중랑구","면목5동",-1,0],["중랑구","면목7동",0.378,0],["중랑구","면목본동",-1,0],["중랑구","묵1동",0.506,0],["중랑구","묵2동",-1,0],["중랑구","상봉1동",0.641,0],["중랑구","상봉2동",0.513,0],["중랑구","신내1동",0.502,0],["중랑구","신내2동",0.652,0],["중랑구","중화1동",-1,0],["중랑구","중화2동",0.488,0]]; // [gu, dong, score(0..1 or -1 ineligible), knownHot]
+const GU = {"종로구":[126.979,37.594],"중구":[126.998,37.560],"용산구":[126.979,37.531],"성동구":[127.041,37.551],"광진구":[127.082,37.542],"동대문구":[127.054,37.578],"중랑구":[127.093,37.600],"성북구":[127.017,37.600],"강북구":[127.011,37.640],"도봉구":[127.032,37.669],"노원구":[127.068,37.654],"은평구":[126.929,37.612],"서대문구":[126.937,37.578],"마포구":[126.902,37.560],"양천구":[126.856,37.520],"강서구":[126.830,37.556],"구로구":[126.870,37.495],"금천구":[126.900,37.457],"영등포구":[126.906,37.520],"동작구":[126.951,37.502],"관악구":[126.946,37.472],"서초구":[127.030,37.476],"강남구":[127.058,37.505],"송파구":[127.110,37.505],"강동구":[127.140,37.545]};
+
+// Deterministic layout: dongs spiral around their gu's approximate centre.
+const K = 260, LAT = 1.26;
+const cnt = {}, items = DATA.map(([gu, dong, s, hot]) => {
+  const n = (cnt[gu] = (cnt[gu] || 0) + 1) - 1, a = n * 2.39996, r = 1.25 * Math.sqrt(n + 0.6);
+  const [lon, lat] = GU[gu];
+  return { gu, dong, s, hot, x: (lon - 126.985) * K + Math.cos(a) * r, z: -(lat - 37.555) * K * LAT + Math.sin(a) * r };
+});
+const iCH = items.findIndex(d => d.dong === "천호3동"), iHH = items.findIndex(d => d.dong === "황학동");
+
+const canvas = document.getElementById("city");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setSize(1920, 1080, false); renderer.setPixelRatio(1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0f0b08);
+scene.fog = new THREE.FogExp2(0x0f0b08, 0.0105);
+const camera = new THREE.PerspectiveCamera(38, 1920 / 1080, 0.1, 600);
+
+const hemi = new THREE.HemisphereLight(0xffe2b8, 0x1d140d, 1.15); scene.add(hemi);
+const key = new THREE.DirectionalLight(0xffd29a, 2.3); key.position.set(40, 80, 30); scene.add(key);
+const rim = new THREE.DirectionalLight(0x6f8fb0, 0.6); rim.position.set(-50, 30, -60); scene.add(rim);
+
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: 0x18110b, roughness: 1 }));
+ground.rotation.x = -Math.PI / 2; scene.add(ground);
+const grid = new THREE.GridHelper(220, 88, 0x3a2a1c, 0x24190f); grid.position.y = 0.01; scene.add(grid);
+
+// Stylised Han river ribbon.
+const riverPts = [[126.80,37.585],[126.86,37.565],[126.91,37.545],[126.95,37.522],[127.00,37.516],[127.04,37.528],[127.075,37.535],[127.11,37.545],[127.17,37.565]]
+  .map(([lo, la]) => new THREE.Vector3((lo - 126.985) * K, 0.05, -(la - 37.555) * K * LAT));
+const river = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(riverPts), 120, 1.6, 8, false),
+  new THREE.MeshStandardMaterial({ color: 0x24465c, emissive: 0x10283a, roughness: 0.3, metalness: 0.2 }));
+river.scale.y = 0.06; scene.add(river);
+
+// 424 columns.
+const geo = new THREE.BoxGeometry(1.0, 1, 1.0); geo.translate(0, 0.5, 0);
+const mat = new THREE.MeshStandardMaterial({ roughness: 0.45, metalness: 0.1 });
+const cols = new THREE.InstancedMesh(geo, mat, items.length); scene.add(cols);
+const m4 = new THREE.Matrix4(), col = new THREE.Color(), q = new THREE.Quaternion(), sc = new THREE.Vector3(), ps = new THREE.Vector3();
+
+// Beacon above the answer.
+const beacon = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.9, 60, 24, 1, true),
+  new THREE.MeshBasicMaterial({ color: 0xffd08a, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }));
+scene.add(beacon);
+const glow = new THREE.PointLight(0xffb764, 0, 40, 1.6); scene.add(glow);
+
+// Seeded dust particles.
+let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const N = 700, pp = new Float32Array(N * 3), base = [];
+for (let i = 0; i < N; i++) { base.push([rnd() * 160 - 80, rnd() * 40 + 2, rnd() * 120 - 60, rnd() * 6.28]); }
+const pgeo = new THREE.BufferGeometry(); pgeo.setAttribute("position", new THREE.BufferAttribute(pp, 3));
+const dust = new THREE.Points(pgeo, new THREE.PointsMaterial({ color: 0xf2c27d, size: 0.35, transparent: true, opacity: 0.55, depthWrite: false }));
+scene.add(dust);
+
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = v => { v = clamp(v); return v * v * (3 - 2 * v); };
+const seg = (t, a, b) => ease((t - a) / (b - a));
+const lerp = (a, b, k) => a + (b - a) * k;
+const v3 = (a, b, k) => [lerp(a[0], b[0], k), lerp(a[1], b[1], k), lerp(a[2], b[2], k)];
+
+const CH = items[iCH], HH = items[iHH];
+// Aim the camera left of the subject so the highlighted column sits on the right, clear of the text panel.
+const off = (o, px, pz, d, y) => { const fx = o.x - (o.x + px), fz = o.z - (o.z + pz), L = Math.hypot(fx, fz), rx = -fz / L, rz = fx / L; return [o.x - rx * d, y, o.z - rz * d]; };
+// Camera shots: [time, position, target]
+const SHOTS = [
+  [0, [10, 120, 150], [0, 0, 0]],
+  [4.2, [-6, 88, 104], [2, 0, 0]],
+  [9.2, [-48, 58, 70], [6, 0, 0]],
+  [15.2, [HH.x - 30, 28, HH.z + 40], off(HH, -30, 40, 11, 5)],
+  [20.6, [HH.x - 22, 22, HH.z + 30], off(HH, -22, 30, 9, 6)],
+  [23.6, [CH.x - 36, 20, CH.z + 32], off(CH, -36, 32, 12, 7)],
+  [26.2, [CH.x - 28, 16, CH.z + 25], off(CH, -28, 25, 10, 8)],
+  [30, [CH.x - 44, 36, CH.z + 46], [CH.x, 6, CH.z]],
+];
+function cameraAt(t) {
+  let i = 0; while (i < SHOTS.length - 2 && t >= SHOTS[i + 1][0]) i++;
+  const [ta, pa, ga] = SHOTS[i], [tb, pb, gb] = SHOTS[i + 1], k = ease((t - ta) / (tb - ta));
+  const orbit = t < 9.2 ? t * 0.035 : 0;
+  const pos = v3(pa, pb, k), tgt = v3(ga, gb, k);
+  const cx = Math.cos(orbit), sx = Math.sin(orbit), dx = pos[0] - tgt[0], dz = pos[2] - tgt[2];
+  camera.position.set(tgt[0] + dx * cx - dz * sx, pos[1], tgt[2] + dx * sx + dz * cx);
+  camera.lookAt(tgt[0], tgt[1], tgt[2]);
+}
+
+const C_WARM = new THREE.Color(0xe08a3c), C_GOLD = new THREE.Color(0xf2c27d), C_DIM = new THREE.Color(0x4a3a2c), C_LOW = new THREE.Color(0x6a3c1c), C_WHITE = new THREE.Color(0xfff3dc);
+function renderAt(t) {
+  const rise = t, filt = seg(t, 5.2, 7.8), morph = seg(t, 9.6, 12.6), focusHH = seg(t, 15.4, 16.6), growHH = seg(t, 16.5, 19), toCH = seg(t, 21, 22.6), endDim = seg(t, 26, 27.5);
+  items.forEach((d, i) => {
+    const delay = 0.15 + Math.hypot(d.x, d.z) * 0.028;
+    const r0 = ease((rise - delay) / 1.4);
+    const h0 = 1.4 + ((i * 37) % 23) / 23 * 2.2;                    // uniform skyline at first
+    const elig = d.s >= 0;
+    const hS = elig ? 0.8 + d.s * 13 : 0.5;                          // score height
+    let h = lerp(h0, elig ? h0 : 0.45, filt);
+    h = lerp(h, hS, morph);
+    if (i === iHH) h = lerp(h, hS * 2.05, growHH);
+    if (i === iCH) h = lerp(h, hS * 1.15, toCH);
+    h = Math.max(0.05, h * r0);
+    // colour
+    col.copy(C_WARM);
+    if (!elig) col.lerp(C_DIM, filt);
+    if (elig) { const c2 = C_LOW.clone().lerp(C_GOLD, d.s); col.lerp(c2, morph); }
+    const spot = i === iHH ? focusHH * (1 - toCH) : i === iCH ? toCH : 0;
+    const dimOthers = Math.max(focusHH * (1 - toCH) * 0.55, toCH * 0.6) * (spot > 0 ? 0 : 1);
+    col.lerp(C_DIM, dimOthers);
+    if (spot > 0) col.lerp(C_WHITE, spot * 0.85);
+    ps.set(d.x, 0, d.z); sc.set(1, h, 1); m4.compose(ps, q, sc);
+    cols.setMatrixAt(i, m4); cols.setColorAt(i, col);
+  });
+  cols.instanceMatrix.needsUpdate = true; cols.instanceColor.needsUpdate = true;
+  // beacon + glow on the answer
+  const b = toCH * (1 - endDim * 0.3);
+  beacon.position.set(CH.x, 30, CH.z); beacon.material.opacity = 0.32 * b; beacon.scale.set(1 + 0.08 * Math.sin(t * 3), 1, 1 + 0.08 * Math.sin(t * 3));
+  glow.position.set(CH.x, 12, CH.z); glow.intensity = 260 * b;
+  // dust drift
+  for (let i = 0; i < N; i++) { const [x, y, z, ph] = base[i]; pp[i * 3] = x + Math.sin(t * 0.3 + ph) * 2; pp[i * 3 + 1] = y + Math.sin(t * 0.5 + ph * 2) * 1.2; pp[i * 3 + 2] = z + t * 0.4; }
+  pgeo.attributes.position.needsUpdate = true;
+  cameraAt(t);
+  renderer.render(scene, camera);
+}
+window.addEventListener("hf-seek", e => renderAt(e.detail.time));
+renderAt(window.__hfThreeTime || 0);
+</script>
+</body>
+</html>

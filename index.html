@@ -44,6 +44,8 @@ h3{font-size:19px;letter-spacing:-.01em;margin-bottom:6px}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
 .kpi b{display:block;font-size:26px;letter-spacing:-.02em;color:var(--crust)}
 .kpi span{font-size:12.5px;color:var(--mute)}
+/* pitch video */
+.pitch{margin:0}.pitch video{width:100%;aspect-ratio:16/9;display:block;border-radius:22px;background:#0f0b08;box-shadow:0 30px 60px -30px rgba(40,24,8,.55)}.pitch figcaption{font-size:12.5px;color:var(--mute);margin-top:10px}
 /* motion stage */
 .stage{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:radial-gradient(120% 90% at 70% 20%,#3a2b1d 0%,#16120e 60%);color:#f6efe5;box-shadow:0 30px 60px -30px rgba(40,24,8,.55)}
 .scene{position:absolute;inset:0;padding:5.5% 6%;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transition:opacity .7s ease}
@@ -148,27 +150,10 @@ footer a{color:var(--ink2)}
     </div>
   </div>
 
-  <!-- 30-second motion graphic -->
-  <div class="stage" id="stage" role="img" aria-label="30초 모션그래픽: 서울 424개 행정동에서 천호3동을 찾기까지">
-    <div class="scene" data-s="0"><div><p class="s-sub">00:00 · 탐색</p><p class="s-title">서울 424개 행정동,<br>다음은 어디일까?</p></div><p class="s-sub">서울시 상권분석서비스 · 2021Q1–2026Q2</p></div>
-    <div class="scene" data-s="1"><div><p class="s-sub">00:05 · 필터</p><p class="s-title">이미 뜬 곳과 작은 상권은 뺍니다</p></div><div><span class="counter num" id="cnt">424</span><span class="s-sub"> 개 동 → 후보</span></div></div>
-    <div class="scene" data-s="2"><div><p class="s-sub">00:10 · 선행지표</p><p class="s-title">검증을 통과한 5개 신호</p></div>
-      <div class="bars">
-        <div class="bar"><span>점포당 매출 증가</span><div><i data-w="92"></i></div></div>
-        <div class="bar"><span>카페·베이커리 매출 모멘텀</span><div><i data-w="86"></i></div></div>
-        <div class="bar"><span>2030 소비 비중</span><div><i data-w="74"></i></div></div>
-        <div class="bar"><span>객단가 하락 (가볍게 자주)</span><div><i data-w="66"></i></div></div>
-        <div class="bar"><span>여성 매출 비중 (보조)</span><div><i data-w="40"></i></div></div>
-      </div></div>
-    <div class="scene" data-s="3"><div><p class="s-sub">00:15 · 백테스트</p><p class="s-title">2023년 말, 1위는 황학동이었습니다</p></div>
-      <svg class="line-svg" viewBox="0 0 400 120" aria-hidden="true"><line x1="0" y1="110" x2="400" y2="110" stroke="rgba(255,255,255,.15)"/><path d="M10 100 L140 82 L270 38 L390 22" fill="none" stroke="#f2c27d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="10" y="92" fill="#d8c7b2" font-size="11">2023 16억</text><text x="250" y="30" fill="#d8c7b2" font-size="11">2024 31억</text><text x="330" y="14" fill="#f2c27d" font-size="12" font-weight="700">2025 36억</text></svg>
-      <p class="s-sub">카페·베이커리 매출 2년 뒤 <b style="color:#f2c27d">+101~115%</b> · '힙당동'이 번진 곳</p></div>
-    <div class="scene" data-s="4"><div><p class="s-sub">00:20 · 지금의 1위</p><p class="s-title">2026년, 신호가 가장 강한 곳: 천호3동</p></div>
-      <div class="stats"><div><b class="num" data-to="30">0</b><span>점포당 매출 +%</span></div><div><b class="num" data-to="48">0</b><span>2030 소비 비중 %</span></div><div><b class="num" data-to="14">0</b><span>빵집 수 (카페 47)</span></div></div></div>
-    <div class="scene endcard" data-s="5"><div class="bread" aria-hidden="true">🥐</div><div class="logo">천호 소금빵 &amp; 베이글</div><p class="s-sub">천호역 5·8호선 · 아침 8시 오픈 · 3년 안에 뜰 동네에, 먼저</p></div>
-    <div class="dots" id="dots" aria-hidden="true"></div>
-    <div class="ctrl"><button type="button" id="play">❚❚ 일시정지</button><div class="prog"><i id="bar"></i></div><span class="time" id="time">0:00 / 0:30</span></div>
-  </div>
+  <figure class="pitch">
+    <video id="pitch" src="assets/pitch.mp4" poster="assets/pitch-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="30초 피치 영상: 서울 424개 행정동 3D 데이터 시티에서 천호3동을 찾기까지"></video>
+    <figcaption>30초 피치 영상 · 424개 행정동의 실제 점수로 만든 3D 데이터 시티 (HyperFrames + Three.js)</figcaption>
+  </figure>
 </div></header>
 
 <section id="define"><div class="wrap">
@@ -292,32 +277,6 @@ document.body.classList.remove('no-js');
   var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.hbar .t i').forEach(function(i){i.style.width=i.dataset.w+'%'});io.unobserve(e.target)}})},{threshold:.15});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
-  // 30-second motion graphic: 6 scenes x 5s
-  var stage=document.getElementById('stage'),scenes=stage.querySelectorAll('.scene'),dots=document.getElementById('dots'),
-      bar=document.getElementById('bar'),time=document.getElementById('time'),btn=document.getElementById('play'),cnt=document.getElementById('cnt');
-  var N=424,TOP=[];for(var i=0;i<N;i++){var d=document.createElement('i');d.style.transitionDelay=(i%53)*8+Math.floor(i/53)*30+'ms';dots.appendChild(d)}
-  var di=dots.children,out=[];for(i=0;i<N;i++){if((i*37)%100<45)out.push(i)} // ~45% filtered out (deterministic)
-  var TOP_I=215; // the winner dot
-  var DUR=30,t=0,playing=false,last=0,shown=-1;
-  function setScene(s){if(s===shown)return;shown=s;
-    scenes.forEach(function(sc,k){sc.classList.toggle('on',k===s)});
-    dots.className='dots';
-    if(s===0){dots.classList.add('show')}
-    if(s===1){dots.classList.add('show','filter');out.forEach(function(k){di[k].classList.add('out')});count(424,231,1600)}
-    if(s>=2){out.forEach(function(k){di[k].classList.remove('out')});dots.style.opacity=0}else{dots.style.opacity=1}
-    if(s===0){out.forEach(function(k){di[k].classList.remove('out')});di[TOP_I].classList.remove('top')}
-    stage.querySelectorAll('.bar i').forEach(function(b){b.style.width=s===2?b.dataset.w+'%':'0'});
-    if(s===4){stage.querySelectorAll('[data-to]').forEach(function(b){count(0,+b.dataset.to,1400,b)})}
-  }
-  function count(a,b,ms,el){el=el||cnt;var st=performance.now();(function f(n){var p=Math.min(1,(n-st)/ms),e=1-Math.pow(1-p,3);el.textContent=Math.round(a+(b-a)*e);if(p<1)requestAnimationFrame(f)})(st)}
-  function fmt(x){x=Math.floor(x);return '0:'+(x<10?'0':'')+x}
-  function frame(n){if(!playing)return;t+=(n-last)/1000;last=n;if(t>=DUR){t=DUR;playing=false;btn.textContent='↻ 다시 보기'}
-    setScene(Math.min(5,Math.floor(t/5)));bar.style.width=(t/DUR*100)+'%';time.textContent=fmt(t)+' / 0:30';if(playing)requestAnimationFrame(frame)}
-  function play(){if(t>=DUR){t=0;shown=-1}playing=true;last=performance.now();btn.textContent='❚❚ 일시정지';requestAnimationFrame(frame)}
-  btn.addEventListener('click',function(){if(playing){playing=false;btn.textContent='▶ 재생'}else play()});
-  if(reduce){setScene(5);bar.style.width='100%';time.textContent='0:30 / 0:30';btn.textContent='▶ 재생';return}
-  setScene(0);
-  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){play();o.disconnect()}},{threshold:.4}).observe(stage);
 })();
 </script>
 </body>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>천호3동 피치 — Hotspot 11</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Pretendard";src:url(fonts/Pretendard-Medium.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Pretendard";src:url(fonts/Pretendard-Bold.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"Pretendard";src:url(fonts/Pretendard-ExtraBold.woff2) format("woff2");font-weight:800}
+:root{--ink:#fbf1e3;--mute:#c9b49a;--gold:#f2c27d;--crust:#e08a3c;--deep:#0f0b08}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--deep)}
+#root{position:relative;width:100%;height:100%;overflow:hidden;font-family:"Pretendard",sans-serif;color:var(--ink);word-break:keep-all}
+#city{position:absolute;inset:0;width:100%;height:100%;display:block}
+#shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,11,8,.82) 0%,rgba(15,11,8,.35) 42%,rgba(15,11,8,0) 70%),linear-gradient(0deg,rgba(15,11,8,.7) 0%,rgba(15,11,8,0) 30%)}
+#brandbg{position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,#3b2716 0%,#0f0b08 75%);opacity:0}
+.clip{position:absolute;inset:0}
+.panel{position:absolute;left:140px;top:0;bottom:0;width:980px;display:flex;flex-direction:column;justify-content:center;gap:26px}
+.kicker{font-size:30px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
+.h{font-size:92px;font-weight:800;letter-spacing:-.035em;line-height:1.08}
+.h .g{color:var(--gold)}
+.sub{font-size:38px;font-weight:500;color:var(--mute);line-height:1.35}
+.counter{font-size:200px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--gold)}
+.chips{display:flex;flex-direction:column;gap:18px}
+.chip{display:flex;align-items:center;gap:22px;font-size:44px;font-weight:700;padding:18px 30px;border-radius:22px;background:rgba(251,241,227,.08);border:1px solid rgba(251,241,227,.18);width:fit-content}
+.chip b{font-size:30px;color:var(--deep);background:var(--gold);border-radius:12px;padding:4px 14px}
+.big{font-size:240px;font-weight:800;letter-spacing:-.05em;line-height:.95;color:var(--gold)}
+.pills{display:flex;gap:18px;flex-wrap:wrap}
+.pill{font-size:36px;font-weight:700;padding:16px 28px;border-radius:99px;background:rgba(242,194,125,.16);border:1px solid rgba(242,194,125,.45)}
+.pill span{color:var(--gold)}
+.brand{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;text-align:center}
+.brand .name{font-size:150px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.brand .tag{font-size:46px;font-weight:500;color:var(--mute)}
+.brand .rule{width:520px;height:4px;border-radius:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.brand .foot{font-size:28px;font-weight:700;letter-spacing:.16em;color:var(--gold)}
+#src{position:absolute;left:140px;bottom:60px;font-size:24px;font-weight:500;color:rgba(251,241,227,.55)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="30">
+  <canvas id="city" width="1920" height="1080"></canvas>
+  <div id="shade"></div>
+  <div id="brandbg"></div>
+
+  <section id="s1" class="clip" data-start="0" data-duration="4.2" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s1k">BAKERY HOTSPOT · SEOUL</p><p class="h" id="s1a">서울에서 빵집을 연다면,</p><p class="h" id="s1b"><span class="g">3년 뒤</span> 어디가 먼저 뜰까?</p></div>
+  </section>
+  <section id="s2" class="clip" data-start="4.2" data-duration="5" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s2k">STEP 1 · 필터</p><p class="h" id="s2h">이미 뜬 곳, 작은 상권은 뺍니다</p><p class="counter" id="cnt">424</p><p class="sub" id="s2s">서울 424개 행정동 → 후보</p></div>
+  </section>
+  <section id="s3" class="clip" data-start="9.2" data-duration="6" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s3k">STEP 2 · 검증을 통과한 선행지표</p>
+      <div class="chips"><p class="chip" id="c1"><b>01</b>점포당 매출 증가</p><p class="chip" id="c2"><b>02</b>카페·베이커리 매출 모멘텀</p><p class="chip" id="c3"><b>03</b>2030 소비 비중</p><p class="chip" id="c4"><b>04</b>객단가 하락 — 가볍게, 자주</p></div>
+      <p class="sub" id="s3s">기둥 높이 = 지금의 '뜰 확률' 점수</p></div>
+  </section>
+  <section id="s4" class="clip" data-start="15.2" data-duration="6" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s4k">STEP 3 · 과거로 검증</p><p class="h" id="s4h">2023년 말 1위, <span class="g">황학동</span></p><p class="big" id="pct">+0%</p><p class="sub" id="s4s">2년 뒤 카페·베이커리 매출 · 무작위 대비 적중률 2배</p></div>
+  </section>
+  <section id="s5" class="clip" data-start="21.2" data-duration="5" data-track-index="1">
+    <div class="panel"><p class="kicker" id="s5k">ANSWER · 2026</p><p class="h" id="s5h" style="font-size:132px">강동구 <span class="g">천호3동</span></p>
+      <div class="pills"><p class="pill" id="p1">점포당 매출 <span>+30%</span></p><p class="pill" id="p2">2030 소비 <span>48%</span></p><p class="pill" id="p3">빵집 <span>14곳</span> · 카페 47곳</p></div></div>
+  </section>
+  <section id="s6" class="clip" data-start="26.2" data-duration="3.8" data-track-index="1">
+    <div class="brand"><p class="foot" id="b0">천호역 5·8호선 · 아침 8시 오픈</p><p class="name" id="b1">천호 소금빵 &amp; 베이글</p><div class="rule" id="b2"></div><p class="tag" id="b3">3년 안에 뜰 동네에, 먼저.</p></div>
+  </section>
+  <p id="src">데이터 · 서울시 상권분석서비스 424개 행정동 · 2021Q1–2026Q2</p>
+</div>
+
+<script>
+// ---------- overlay typography (GSAP, paused, seek-safe) ----------
+const tl = gsap.timeline({ paused: true });
+const up = (sel, at, d = 0.7) => tl.fromTo(sel, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: d, ease: "power3.out" }, at);
+const out = (sel, at) => tl.to(sel, { autoAlpha: 0, y: -24, duration: 0.4, ease: "power2.in" }, at);
+up("#s1k", 0.3); up("#s1a", 0.6, 0.9); up("#s1b", 1.5, 0.9); out(["#s1k", "#s1a", "#s1b"], 3.7);
+up("#s2k", 4.4); up("#s2h", 4.6); up("#cnt", 4.9); up("#s2s", 5.2);
+const c = { v: 424 };
+tl.to(c, { v: 232, duration: 2.6, ease: "power2.inOut", onUpdate: () => { document.getElementById("cnt").textContent = Math.round(c.v); } }, 5.4);
+out(["#s2k", "#s2h", "#cnt", "#s2s"], 8.7);
+up("#s3k", 9.4); up("#c1", 9.9); up("#c2", 10.9); up("#c3", 11.9); up("#c4", 12.9); up("#s3s", 13.6); out(["#s3k", "#c1", "#c2", "#c3", "#c4", "#s3s"], 14.7);
+up("#s4k", 15.4); up("#s4h", 15.7); up("#pct", 16.3); up("#s4s", 17.2);
+const p = { v: 0 };
+tl.to(p, { v: 115, duration: 2.4, ease: "power2.out", onUpdate: () => { document.getElementById("pct").textContent = "+" + Math.round(p.v) + "%"; } }, 16.5);
+out(["#s4k", "#s4h", "#pct", "#s4s"], 20.7);
+up("#s5k", 21.4); up("#s5h", 21.7, 0.9); up("#p1", 22.6); up("#p2", 22.9); up("#p3", 23.2); out(["#s5k", "#s5h", "#p1", "#p2", "#p3"], 25.7);
+tl.fromTo("#brandbg", { opacity: 0 }, { opacity: 0.92, duration: 1.2, ease: "power2.inOut" }, 25.8);
+tl.fromTo("#src", { opacity: 1 }, { opacity: 0, duration: 0.6 }, 25.8);
+up("#b0", 26.5); tl.fromTo("#b1", { autoAlpha: 0, scale: 0.92 }, { autoAlpha: 1, scale: 1, duration: 1.1, ease: "expo.out" }, 26.8);
+tl.fromTo("#b2", { scaleX: 0 }, { scaleX: 1, duration: 1, ease: "power3.out" }, 27.4); up("#b3", 27.7);
+window.__timelines["main"] = tl;
+</script>
+
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.181.2/+esm";
+
+const DATA = __DATA__; // [gu, dong, score(0..1 or -1 ineligible), knownHot]
+const GU = {"종로구":[126.979,37.594],"중구":[126.998,37.560],"용산구":[126.979,37.531],"성동구":[127.041,37.551],"광진구":[127.082,37.542],"동대문구":[127.054,37.578],"중랑구":[127.093,37.600],"성북구":[127.017,37.600],"강북구":[127.011,37.640],"도봉구":[127.032,37.669],"노원구":[127.068,37.654],"은평구":[126.929,37.612],"서대문구":[126.937,37.578],"마포구":[126.902,37.560],"양천구":[126.856,37.520],"강서구":[126.830,37.556],"구로구":[126.870,37.495],"금천구":[126.900,37.457],"영등포구":[126.906,37.520],"동작구":[126.951,37.502],"관악구":[126.946,37.472],"서초구":[127.030,37.476],"강남구":[127.058,37.505],"송파구":[127.110,37.505],"강동구":[127.140,37.545]};
+
+// Deterministic layout: dongs spiral around their gu's approximate centre.
+const K = 260, LAT = 1.26;
+const cnt = {}, items = DATA.map(([gu, dong, s, hot]) => {
+  const n = (cnt[gu] = (cnt[gu] || 0) + 1) - 1, a = n * 2.39996, r = 1.25 * Math.sqrt(n + 0.6);
+  const [lon, lat] = GU[gu];
+  return { gu, dong, s, hot, x: (lon - 126.985) * K + Math.cos(a) * r, z: -(lat - 37.555) * K * LAT + Math.sin(a) * r };
+});
+const iCH = items.findIndex(d => d.dong === "천호3동"), iHH = items.findIndex(d => d.dong === "황학동");
+
+const canvas = document.getElementById("city");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setSize(1920, 1080, false); renderer.setPixelRatio(1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0f0b08);
+scene.fog = new THREE.FogExp2(0x0f0b08, 0.0105);
+const camera = new THREE.PerspectiveCamera(38, 1920 / 1080, 0.1, 600);
+
+const hemi = new THREE.HemisphereLight(0xffe2b8, 0x1d140d, 1.15); scene.add(hemi);
+const key = new THREE.DirectionalLight(0xffd29a, 2.3); key.position.set(40, 80, 30); scene.add(key);
+const rim = new THREE.DirectionalLight(0x6f8fb0, 0.6); rim.position.set(-50, 30, -60); scene.add(rim);
+
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: 0x18110b, roughness: 1 }));
+ground.rotation.x = -Math.PI / 2; scene.add(ground);
+const grid = new THREE.GridHelper(220, 88, 0x3a2a1c, 0x24190f); grid.position.y = 0.01; scene.add(grid);
+
+// Stylised Han river ribbon.
+const riverPts = [[126.80,37.585],[126.86,37.565],[126.91,37.545],[126.95,37.522],[127.00,37.516],[127.04,37.528],[127.075,37.535],[127.11,37.545],[127.17,37.565]]
+  .map(([lo, la]) => new THREE.Vector3((lo - 126.985) * K, 0.05, -(la - 37.555) * K * LAT));
+const river = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(riverPts), 120, 1.6, 8, false),
+  new THREE.MeshStandardMaterial({ color: 0x24465c, emissive: 0x10283a, roughness: 0.3, metalness: 0.2 }));
+river.scale.y = 0.06; scene.add(river);
+
+// 424 columns.
+const geo = new THREE.BoxGeometry(1.0, 1, 1.0); geo.translate(0, 0.5, 0);
+const mat = new THREE.MeshStandardMaterial({ roughness: 0.45, metalness: 0.1 });
+const cols = new THREE.InstancedMesh(geo, mat, items.length); scene.add(cols);
+const m4 = new THREE.Matrix4(), col = new THREE.Color(), q = new THREE.Quaternion(), sc = new THREE.Vector3(), ps = new THREE.Vector3();
+
+// Beacon above the answer.
+const beacon = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.9, 60, 24, 1, true),
+  new THREE.MeshBasicMaterial({ color: 0xffd08a, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }));
+scene.add(beacon);
+const glow = new THREE.PointLight(0xffb764, 0, 40, 1.6); scene.add(glow);
+
+// Seeded dust particles.
+let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const N = 700, pp = new Float32Array(N * 3), base = [];
+for (let i = 0; i < N; i++) { base.push([rnd() * 160 - 80, rnd() * 40 + 2, rnd() * 120 - 60, rnd() * 6.28]); }
+const pgeo = new THREE.BufferGeometry(); pgeo.setAttribute("position", new THREE.BufferAttribute(pp, 3));
+const dust = new THREE.Points(pgeo, new THREE.PointsMaterial({ color: 0xf2c27d, size: 0.35, transparent: true, opacity: 0.55, depthWrite: false }));
+scene.add(dust);
+
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = v => { v = clamp(v); return v * v * (3 - 2 * v); };
+const seg = (t, a, b) => ease((t - a) / (b - a));
+const lerp = (a, b, k) => a + (b - a) * k;
+const v3 = (a, b, k) => [lerp(a[0], b[0], k), lerp(a[1], b[1], k), lerp(a[2], b[2], k)];
+
+const CH = items[iCH], HH = items[iHH];
+// Aim the camera left of the subject so the highlighted column sits on the right, clear of the text panel.
+const off = (o, px, pz, d, y) => { const fx = o.x - (o.x + px), fz = o.z - (o.z + pz), L = Math.hypot(fx, fz), rx = -fz / L, rz = fx / L; return [o.x - rx * d, y, o.z - rz * d]; };
+// Camera shots: [time, position, target]
+const SHOTS = [
+  [0, [10, 120, 150], [0, 0, 0]],
+  [4.2, [-6, 88, 104], [2, 0, 0]],
+  [9.2, [-48, 58, 70], [6, 0, 0]],
+  [15.2, [HH.x - 30, 28, HH.z + 40], off(HH, -30, 40, 11, 5)],
+  [20.6, [HH.x - 22, 22, HH.z + 30], off(HH, -22, 30, 9, 6)],
+  [23.6, [CH.x - 36, 20, CH.z + 32], off(CH, -36, 32, 12, 7)],
+  [26.2, [CH.x - 28, 16, CH.z + 25], off(CH, -28, 25, 10, 8)],
+  [30, [CH.x - 44, 36, CH.z + 46], [CH.x, 6, CH.z]],
+];
+function cameraAt(t) {
+  let i = 0; while (i < SHOTS.length - 2 && t >= SHOTS[i + 1][0]) i++;
+  const [ta, pa, ga] = SHOTS[i], [tb, pb, gb] = SHOTS[i + 1], k = ease((t - ta) / (tb - ta));
+  const orbit = t < 9.2 ? t * 0.035 : 0;
+  const pos = v3(pa, pb, k), tgt = v3(ga, gb, k);
+  const cx = Math.cos(orbit), sx = Math.sin(orbit), dx = pos[0] - tgt[0], dz = pos[2] - tgt[2];
+  camera.position.set(tgt[0] + dx * cx - dz * sx, pos[1], tgt[2] + dx * sx + dz * cx);
+  camera.lookAt(tgt[0], tgt[1], tgt[2]);
+}
+
+const C_WARM = new THREE.Color(0xe08a3c), C_GOLD = new THREE.Color(0xf2c27d), C_DIM = new THREE.Color(0x4a3a2c), C_LOW = new THREE.Color(0x6a3c1c), C_WHITE = new THREE.Color(0xfff3dc);
+function renderAt(t) {
+  const rise = t, filt = seg(t, 5.2, 7.8), morph = seg(t, 9.6, 12.6), focusHH = seg(t, 15.4, 16.6), growHH = seg(t, 16.5, 19), toCH = seg(t, 21, 22.6), endDim = seg(t, 26, 27.5);
+  items.forEach((d, i) => {
+    const delay = 0.15 + Math.hypot(d.x, d.z) * 0.028;
+    const r0 = ease((rise - delay) / 1.4);
+    const h0 = 1.4 + ((i * 37) % 23) / 23 * 2.2;                    // uniform skyline at first
+    const elig = d.s >= 0;
+    const hS = elig ? 0.8 + d.s * 13 : 0.5;                          // score height
+    let h = lerp(h0, elig ? h0 : 0.45, filt);
+    h = lerp(h, hS, morph);
+    if (i === iHH) h = lerp(h, hS * 2.05, growHH);
+    if (i === iCH) h = lerp(h, hS * 1.15, toCH);
+    h = Math.max(0.05, h * r0);
+    // colour
+    col.copy(C_WARM);
+    if (!elig) col.lerp(C_DIM, filt);
+    if (elig) { const c2 = C_LOW.clone().lerp(C_GOLD, d.s); col.lerp(c2, morph); }
+    const spot = i === iHH ? focusHH * (1 - toCH) : i === iCH ? toCH : 0;
+    const dimOthers = Math.max(focusHH * (1 - toCH) * 0.55, toCH * 0.6) * (spot > 0 ? 0 : 1);
+    col.lerp(C_DIM, dimOthers);
+    if (spot > 0) col.lerp(C_WHITE, spot * 0.85);
+    ps.set(d.x, 0, d.z); sc.set(1, h, 1); m4.compose(ps, q, sc);
+    cols.setMatrixAt(i, m4); cols.setColorAt(i, col);
+  });
+  cols.instanceMatrix.needsUpdate = true; cols.instanceColor.needsUpdate = true;
+  // beacon + glow on the answer
+  const b = toCH * (1 - endDim * 0.3);
+  beacon.position.set(CH.x, 30, CH.z); beacon.material.opacity = 0.32 * b; beacon.scale.set(1 + 0.08 * Math.sin(t * 3), 1, 1 + 0.08 * Math.sin(t * 3));
+  glow.position.set(CH.x, 12, CH.z); glow.intensity = 260 * b;
+  // dust drift
+  for (let i = 0; i < N; i++) { const [x, y, z, ph] = base[i]; pp[i * 3] = x + Math.sin(t * 0.3 + ph) * 2; pp[i * 3 + 1] = y + Math.sin(t * 0.5 + ph * 2) * 1.2; pp[i * 3 + 2] = z + t * 0.4; }
+  pgeo.attributes.position.needsUpdate = true;
+  cameraAt(t);
+  renderer.render(scene, camera);
+}
+window.addEventListener("hf-seek", e => renderAt(e.detail.time));
+renderAt(window.__hfThreeTime || 0);
+</script>
+</body>
+</html>
