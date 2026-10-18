@@ -34,9 +34,12 @@ h3{font-size:19px;letter-spacing:-.01em;margin-bottom:6px}
 .tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;background:#f3e7d8;color:#8a4c16}
 .tag.bad{background:#f6e1db;color:var(--bad)}.tag.good{background:#dcefe5;color:var(--good)}
 /* hero */
-.hero{padding:56px 0 72px}
-.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero{padding:56px 0 80px}
+.hero-head{text-align:center}
+.hero-head h1{max-width:1000px;margin:10px auto 0}
+.hero-foot{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:stretch;max-width:1400px}
+.hero-foot .answer{margin:0;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:900px){.hero-foot{grid-template-columns:1fr}}
 .answer{margin:22px 0 26px;padding:18px 20px;border-radius:16px;background:var(--deep);color:#f6efe5}
 .answer small{display:block;color:var(--crust2);font-weight:700;font-size:12.5px;letter-spacing:.06em}
 .answer strong{font-size:22px}
@@ -45,7 +48,7 @@ h3{font-size:19px;letter-spacing:-.01em;margin-bottom:6px}
 .kpi b{display:block;font-size:26px;letter-spacing:-.02em;color:var(--crust)}
 .kpi span{font-size:12.5px;color:var(--mute)}
 /* pitch video */
-.pitch{margin:0}.pitch video{width:100%;aspect-ratio:16/9;display:block;border-radius:22px;background:#0f0b08;box-shadow:0 30px 60px -30px rgba(40,24,8,.55)}.pitch figcaption{font-size:12.5px;color:var(--mute);margin-top:10px}
+.pitch{width:min(1400px,calc(100vw - 32px));margin:36px auto 28px}.pitch video{width:100%;aspect-ratio:16/9;display:block;border-radius:24px;background:#0f0b08;box-shadow:0 40px 90px -40px rgba(40,24,8,.7)}.pitch figcaption{font-size:13px;color:var(--mute);margin-top:12px;text-align:center}
 /* motion stage */
 .stage{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:radial-gradient(120% 90% at 70% 20%,#3a2b1d 0%,#16120e 60%);color:#f6efe5;box-shadow:0 30px 60px -30px rgba(40,24,8,.55)}
 .scene{position:absolute;inset:0;padding:5.5% 6%;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transition:opacity .7s ease}
@@ -138,10 +141,16 @@ footer a{color:var(--ink2)}
 <body class="no-js">
 <nav><div class="wrap"><b>Hotspot 11 <span>· Bakery</span></b><a href="#define">① 뜬다의 정의</a><a href="#validate">② 검증</a><a href="#top3">③ 추천 3곳</a><a href="#concept">④ 매장 콘셉트</a><a href="#risk">⑤ 리스크</a></div></nav>
 
-<header class="hero"><div class="wrap hero-grid">
-  <div>
+<header class="hero">
+  <div class="wrap hero-head">
     <p class="eyebrow">KEARNEY AX WORKSHOP · 서울의 다음 핫플레이스</p>
-    <h1>다음 베이커리 핫플은<br><span class="hl">강동구 천호3동</span>입니다.</h1>
+    <h1>다음 베이커리 핫플은 <span class="hl">강동구 천호3동</span>입니다.</h1>
+  </div>
+  <figure class="pitch">
+    <video id="pitch" src="assets/pitch.mp4" poster="assets/pitch-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="30초 피치 영상: 서울 424개 행정동 3D 데이터 시티에서 천호3동을 찾기까지"></video>
+    <figcaption>30초 피치 영상 · 424개 행정동의 실제 점수로 만든 3D 데이터 시티</figcaption>
+  </figure>
+  <div class="wrap hero-foot">
     <div class="answer"><small>30초 요약</small><strong>빵을 사려는 사람은 가게보다 빨리 늘고, 빵집은 아직 14곳뿐입니다.</strong></div>
     <div class="kpis">
       <div class="kpi"><b class="num">+30%</b><span>점포당 매출 (1년)</span></div>
@@ -149,12 +158,7 @@ footer a{color:var(--ink2)}
       <div class="kpi"><b class="num">2.0×</b><span>지표 적중률 vs 무작위</span></div>
     </div>
   </div>
-
-  <figure class="pitch">
-    <video id="pitch" src="assets/pitch.mp4" poster="assets/pitch-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="30초 피치 영상: 서울 424개 행정동 3D 데이터 시티에서 천호3동을 찾기까지"></video>
-    <figcaption>30초 피치 영상 · 424개 행정동의 실제 점수로 만든 3D 데이터 시티 (HyperFrames + Three.js)</figcaption>
-  </figure>
-</div></header>
+</header>
 
 <section id="define"><div class="wrap">
   <p class="eyebrow">① '뜬다'의 정의</p>
