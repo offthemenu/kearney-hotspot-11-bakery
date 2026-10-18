@@ -81,7 +81,7 @@ out(["#s2k", "#s2h", "#cnt", "#s2s"], 8.7);
 up("#s3k", 9.4); up("#c1", 9.9); up("#c2", 10.9); up("#c3", 11.9); up("#c4", 12.9); up("#s3s", 13.6); out(["#s3k", "#c1", "#c2", "#c3", "#c4", "#s3s"], 14.7);
 up("#s4k", 15.4); up("#s4h", 15.7); up("#pct", 16.3); up("#s4s", 17.2);
 const p = { v: 0 };
-tl.to(p, { v: 115, duration: 2.4, ease: "power2.out", onUpdate: () => { document.getElementById("pct").textContent = "+" + Math.round(p.v) + "%"; } }, 16.5);
+tl.to(p, { v: 101, duration: 2.4, ease: "power2.out", onUpdate: () => { document.getElementById("pct").textContent = "+" + Math.round(p.v) + "%"; } }, 16.5);
 out(["#s4k", "#s4h", "#pct", "#s4s"], 20.7);
 up("#s5k", 21.4); up("#s5h", 21.7, 0.9); up("#p1", 22.6); up("#p2", 22.9); up("#p3", 23.2); out(["#s5k", "#s5h", "#p1", "#p2", "#p3"], 25.7);
 tl.fromTo("#brandbg", { opacity: 0 }, { opacity: 0.92, duration: 1.2, ease: "power2.inOut" }, 25.8);
